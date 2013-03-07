@@ -322,7 +322,7 @@ namespace Cohen_Sutherland
                     v.AssignToTranslationMatrix_Y(Delta);
                 }
 
-                prevNumTransformationX = (float)numTranslationX.Value;
+                prevNumTransformationY = (float)numTranslationY.Value;
                 logic.UpdateLogger();
             }
         }
