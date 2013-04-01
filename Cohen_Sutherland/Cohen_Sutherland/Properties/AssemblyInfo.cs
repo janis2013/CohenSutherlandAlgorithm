@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
 [assembly: AssemblyTitle("Cohen_Sutherland")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Visualisation of the Cohen Sutherland Algorithm")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Cohen_Sutherland")]

@@ -42,7 +42,7 @@
             this.turnOffonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.captionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opacityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripTextBoxCohenSutherlandOpacy = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripTextBoxCohenSutherlandOpacity = new System.Windows.Forms.ToolStripTextBox();
             this.ColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBoxCohenSutherlandFarbe = new System.Windows.Forms.ToolStripTextBox();
             this.dotRadiusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +54,7 @@
             this.resetAllMatricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showCoordinatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbStage = new System.Windows.Forms.PictureBox();
             this.ImageTimer = new System.Windows.Forms.Timer(this.components);
             this.lvLogger = new System.Windows.Forms.ListView();
@@ -83,7 +84,6 @@
             this.Updater = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStage)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -226,18 +226,18 @@
             // opacityToolStripMenuItem
             // 
             this.opacityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBoxCohenSutherlandOpacy});
+            this.toolStripTextBoxCohenSutherlandOpacity});
             this.opacityToolStripMenuItem.Name = "opacityToolStripMenuItem";
             this.opacityToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.opacityToolStripMenuItem.Text = "Opacy";
+            this.opacityToolStripMenuItem.Text = "Opacity";
             // 
-            // toolStripTextBoxCohenSutherlandOpacy
+            // toolStripTextBoxCohenSutherlandOpacity
             // 
-            this.toolStripTextBoxCohenSutherlandOpacy.Name = "toolStripTextBoxCohenSutherlandOpacy";
-            this.toolStripTextBoxCohenSutherlandOpacy.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBoxCohenSutherlandOpacy.Text = "45";
-            this.toolStripTextBoxCohenSutherlandOpacy.KeyUp += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxCohenSutherlandOpacity_KeyUp);
-            this.toolStripTextBoxCohenSutherlandOpacy.TextChanged += new System.EventHandler(this.toolStripTextBoxCohenSutherlandOpacy_TextChanged);
+            this.toolStripTextBoxCohenSutherlandOpacity.Name = "toolStripTextBoxCohenSutherlandOpacity";
+            this.toolStripTextBoxCohenSutherlandOpacity.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBoxCohenSutherlandOpacity.Text = "45";
+            this.toolStripTextBoxCohenSutherlandOpacity.KeyUp += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxCohenSutherlandOpacity_KeyUp);
+            this.toolStripTextBoxCohenSutherlandOpacity.TextChanged += new System.EventHandler(this.toolStripTextBoxCohenSutherlandOpacity_TextChanged);
             // 
             // ColorToolStripMenuItem
             // 
@@ -330,6 +330,13 @@
             this.showCoordinatesToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.showCoordinatesToolStripMenuItem.Text = "Show coordinates";
             this.showCoordinatesToolStripMenuItem.Click += new System.EventHandler(this.showCoordinatesToolStripMenuItem_Click_1);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // pbStage
             // 
@@ -686,13 +693,6 @@
             this.toolStripStatusLabelStatus.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabelStatus.Text = "toolStripStatusLabel1";
             // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -760,7 +760,7 @@
         private System.Windows.Forms.ToolStripMenuItem showCoordinatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem drawLinesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem opacityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxCohenSutherlandOpacy;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxCohenSutherlandOpacity;
         private System.Windows.Forms.ToolStripMenuItem ColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxCohenSutherlandFarbe;
         private System.Windows.Forms.ListView lvLogger;

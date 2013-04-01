@@ -83,7 +83,7 @@ namespace Cohen_Sutherland
 
             //Textdateien (*.txt)|*.txt|Alle Dateien (*.*)|*.*"
 
-            toolStripTextBoxCohenSutherlandOpacy.LostFocus += new EventHandler(toolStripTextBoxCohenSutherlandOpacity_LostFocus);
+            toolStripTextBoxCohenSutherlandOpacity.LostFocus += new EventHandler(toolStripTextBoxCohenSutherlandOpacity_LostFocus);
             toolStripTextBoxDotRadius.LostFocus += new EventHandler(toolStripTextBoxDotRadius_LostFocus);
 
             lvLogger.Columns.Add(new ColumnHeader() { Text = "Position", Width = 100 });
@@ -347,6 +347,7 @@ namespace Cohen_Sutherland
 
 
 
+        [System.Diagnostics.DebuggerHidden()]
         private void ImageTimer_Tick(object sender, EventArgs e)
         {
             this.pbStage.Image = logic.GetImage();
@@ -481,19 +482,28 @@ namespace Cohen_Sutherland
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            try
             {
-                string filename = dialog.FileName;
-                Bitmap currImage = logic.GetImage();
-                currImage.Save(filename);
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    string filename = dialog.FileName;
+                    Bitmap currImage = logic.GetImage();
+                    currImage.Save(filename);
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error: " + ex.Message);
+            }
+           
 
 
         }
 
-        private void toolStripTextBoxCohenSutherlandOpacy_TextChanged(object sender, EventArgs e)
+        private void toolStripTextBoxCohenSutherlandOpacity_TextChanged(object sender, EventArgs e)
         {
-            string text = toolStripTextBoxCohenSutherlandOpacy.Text.Trim();
+            string text = toolStripTextBoxCohenSutherlandOpacity.Text.Trim();
             if (text != "")
             {
                 string newText = "";
@@ -504,8 +514,27 @@ namespace Cohen_Sutherland
                         newText += text[i];
                     }
                 }
-                toolStripTextBoxCohenSutherlandOpacy.Text = newText;
-                toolStripTextBoxCohenSutherlandOpacy.SelectionStart = toolStripTextBoxCohenSutherlandOpacy.Text.Length;
+                int test = -1;
+                bool succ = int.TryParse(newText, out test);
+                if (succ)
+                {
+                    if (test > -1 && test < 256)
+                    {
+                        // ok
+                        toolStripTextBoxCohenSutherlandOpacity.Text = newText;
+                        toolStripTextBoxCohenSutherlandOpacity.SelectionStart = toolStripTextBoxCohenSutherlandOpacity.Text.Length;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter a valid Opacity (0-255).", "Invalid Opacity", MessageBoxButtons.OK);
+                        toolStripTextBoxCohenSutherlandOpacity.Text = "";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid Opacity (0-255).", "Invalid Opacity", MessageBoxButtons.OK);
+                    toolStripTextBoxCohenSutherlandOpacity.Text = "";
+                }
 
             }
 
@@ -518,20 +547,21 @@ namespace Cohen_Sutherland
             drawLinesToolStripMenuItem.Checked = false;
             drawTrianglesToolStripMenuItem.Checked = false;
             drawPointsToolStripMenuItem.Checked = false;
+            toolStripStatusLabelStatus.Text = "Drawing Mode: None";
 
 
-            if (toolStripTextBoxCohenSutherlandOpacy.Text == "")
+            if (toolStripTextBoxCohenSutherlandOpacity.Text == "")
             {
-                toolStripTextBoxCohenSutherlandOpacy.Text = "45";
+                toolStripTextBoxCohenSutherlandOpacity.Text = "45";
                 GraphicCore.Cohen_Sutherland_Opacity = 45;
             }
             else
             {
-                int opacy;
-                bool success = int.TryParse(toolStripTextBoxCohenSutherlandOpacy.Text, out opacy);
-                if (success && opacy >= 0 && opacy <= 255)
+                int opacity;
+                bool success = int.TryParse(toolStripTextBoxCohenSutherlandOpacity.Text, out opacity);
+                if (success && opacity >= 0 && opacity <= 255)
                 {
-                    GraphicCore.Cohen_Sutherland_Opacity = opacy;
+                    GraphicCore.Cohen_Sutherland_Opacity = opacity;
                 }
                 else
                 {
@@ -670,6 +700,7 @@ namespace Cohen_Sutherland
             else
             {
                 showCoordinatesToolStripMenuItem.Checked = true;
+                logic.ShowCoordinates = showCoordinatesToolStripMenuItem.Checked;
             }
 
 
@@ -739,7 +770,7 @@ namespace Cohen_Sutherland
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This program was written by Janis Dähne.\nIt's free for any use.","About");
+            MessageBox.Show("This program was written by Janis Dähne.\nIt's free for any use.\nQuestions to 'janisdd@web.de'.", "About");
         }
 
 

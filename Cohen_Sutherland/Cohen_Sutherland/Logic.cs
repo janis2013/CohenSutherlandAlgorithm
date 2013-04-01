@@ -308,6 +308,7 @@ namespace Cohen_Sutherland
         /// Returns the next image.
         /// </summary>
         /// <returns></returns>
+        [System.Diagnostics.DebuggerHidden()]
         public Bitmap GetImage()
         {
             gc.StartImage();
@@ -1123,13 +1124,16 @@ namespace Cohen_Sutherland
                 }
                 if (clickCount == 0) //we don't want any vector to be marked anymore
                 {
-                    foreach (ListViewItem item in lvLogger.Items)
-                    {
-                        if (item.Selected)
-                        {
-                            item.Selected = false;
-                        }
-                    }
+                    //don't work if lvLogger has lost focus
+                    //foreach (ListViewItem item in lvLogger.Items)
+                    //{
+                        //if (item.Selected)
+                        //{
+                        //    item.Selected = false;
+                        //}
+                    //}
+                    UpdateLogger();
+
                     Program.fmMain.ClearClickedVectors();
                 }
             }
